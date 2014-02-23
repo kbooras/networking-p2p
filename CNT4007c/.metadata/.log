@@ -1,0 +1,231 @@
+!SESSION 2014-02-23 13:45:41.704 -----------------------------------------------
+eclipse.buildId=I20110613-1736
+java.version=1.7.0_51
+java.vendor=Oracle Corporation
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=en_US
+Command-line arguments:  -data /cise/homes/bjclark/CNT4007c -os linux -ws gtk -arch x86_64
+
+!ENTRY org.eclipse.equinox.p2.operations 4 0 2014-02-23 14:24:35.691
+!MESSAGE Operation details
+!SUBENTRY 1 org.eclipse.equinox.p2.director 4 1 2014-02-23 14:24:35.691
+!MESSAGE Cannot complete the install because one or more required items could not be found.
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 0 2014-02-23 14:24:35.691
+!MESSAGE Software being installed: Eclipse GitHub integration with task focused interface 3.2.0.201312181205-r (org.eclipse.mylyn.github.feature.feature.group 3.2.0.201312181205-r)
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 0 2014-02-23 14:24:35.691
+!MESSAGE Missing requirement: Eclipse GitHub integration with task focused interface 3.2.0.201312181205-r (org.eclipse.mylyn.github.feature.feature.group 3.2.0.201312181205-r) requires 'org.eclipse.mylyn_feature.feature.group 3.7.0' but it could not be found
+
+!ENTRY org.eclipse.equinox.p2.operations 4 0 2014-02-23 14:24:35.696
+!MESSAGE Operation details
+!SUBENTRY 1 org.eclipse.equinox.p2.director 4 1 2014-02-23 14:24:35.696
+!MESSAGE Cannot complete the install because one or more required items could not be found.
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 0 2014-02-23 14:24:35.696
+!MESSAGE Software being installed: Eclipse GitHub integration with task focused interface 3.2.0.201312181205-r (org.eclipse.mylyn.github.feature.feature.group 3.2.0.201312181205-r)
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 0 2014-02-23 14:24:35.696
+!MESSAGE Missing requirement: Eclipse GitHub integration with task focused interface 3.2.0.201312181205-r (org.eclipse.mylyn.github.feature.feature.group 3.2.0.201312181205-r) requires 'org.eclipse.mylyn_feature.feature.group 3.7.0' but it could not be found
+
+!ENTRY org.eclipse.equinox.p2.operations 4 0 2014-02-23 14:25:56.586
+!MESSAGE Operation details
+!SUBENTRY 1 org.eclipse.equinox.p2.operations 2 10001 2014-02-23 14:25:56.586
+!MESSAGE Your original request has been modified.
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 2 10013 2014-02-23 14:25:56.586
+!MESSAGE Eclipse CVS Client will be ignored because it is already installed, and updates are not permitted.
+!SUBENTRY 1 org.eclipse.equinox.p2.director 4 1 2014-02-23 14:25:56.587
+!MESSAGE Cannot complete the install because of a conflicting dependency.
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 0 2014-02-23 14:25:56.587
+!MESSAGE Software being installed: Mylyn Intent - CDO support (Incubation) 0.8.0.201306030818 (org.eclipse.mylyn.docs.intent.cdo.feature.feature.group 0.8.0.201306030818)
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 0 2014-02-23 14:25:56.587
+!MESSAGE Software currently installed: Eclipse Platform 3.7.0.I20110613-1736 (org.eclipse.platform.ide 3.7.0.I20110613-1736)
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 1 2014-02-23 14:25:56.587
+!MESSAGE Only one of the following can be installed at once: 
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2014-02-23 14:25:56.587
+!MESSAGE Eclipse UI 3.105.0.v20130522-1122 (org.eclipse.ui 3.105.0.v20130522-1122)
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2014-02-23 14:25:56.587
+!MESSAGE Eclipse UI 3.7.0.dist (org.eclipse.ui 3.7.0.dist)
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 1 2014-02-23 14:25:56.587
+!MESSAGE Cannot satisfy dependency:
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2014-02-23 14:25:56.587
+!MESSAGE From: Mylyn Intent - CDO support (Incubation) 0.8.0.201306030818 (org.eclipse.mylyn.docs.intent.cdo.feature.feature.group 0.8.0.201306030818)
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2014-02-23 14:25:56.588
+!MESSAGE To: org.eclipse.mylyn.docs.intent.example.cdo.server [0.8.0.201306030818]
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 1 2014-02-23 14:25:56.588
+!MESSAGE Cannot satisfy dependency:
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2014-02-23 14:25:56.588
+!MESSAGE From: Intent CDO Server examples 0.8.0.201306030818 (org.eclipse.mylyn.docs.intent.example.cdo.server 0.8.0.201306030818)
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2014-02-23 14:25:56.588
+!MESSAGE To: bundle org.eclipse.ui 3.7.100
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 1 2014-02-23 14:25:56.588
+!MESSAGE Cannot satisfy dependency:
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2014-02-23 14:25:56.588
+!MESSAGE From: Eclipse Platform 3.7.2.dist-9nF7UHagFqn9pElwWhC90gLz-soEuSGYmtSeiRH (org.eclipse.platform.feature.group 3.7.2.dist-9nF7UHagFqn9pElwWhC90gLz-soEuSGYmtSeiRH)
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2014-02-23 14:25:56.588
+!MESSAGE To: org.eclipse.rcp.feature.group [3.7.2.dist-8R9GFpOFUdy-521934]
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 1 2014-02-23 14:25:56.589
+!MESSAGE Cannot satisfy dependency:
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2014-02-23 14:25:56.589
+!MESSAGE From: Eclipse Platform 3.7.0.I20110613-1736 (org.eclipse.platform.ide 3.7.0.I20110613-1736)
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2014-02-23 14:25:56.589
+!MESSAGE To: org.eclipse.platform.feature.group [3.7.2.dist-9nF7UHagFqn9pElwWhC90gLz-soEuSGYmtSeiRH]
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 1 2014-02-23 14:25:56.589
+!MESSAGE Cannot satisfy dependency:
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2014-02-23 14:25:56.589
+!MESSAGE From: Eclipse RCP 3.7.2.dist-8R9GFpOFUdy-521934 (org.eclipse.rcp.feature.group 3.7.2.dist-8R9GFpOFUdy-521934)
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2014-02-23 14:25:56.589
+!MESSAGE To: org.eclipse.ui [3.7.0.dist]
+
+!ENTRY org.eclipse.equinox.p2.operations 4 0 2014-02-23 14:25:56.611
+!MESSAGE Operation details
+!SUBENTRY 1 org.eclipse.equinox.p2.operations 2 10001 2014-02-23 14:25:56.611
+!MESSAGE Your original request has been modified.
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 2 10013 2014-02-23 14:25:56.611
+!MESSAGE Eclipse CVS Client will be ignored because it is already installed, and updates are not permitted.
+!SUBENTRY 1 org.eclipse.equinox.p2.director 4 1 2014-02-23 14:25:56.611
+!MESSAGE Cannot complete the install because of a conflicting dependency.
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 0 2014-02-23 14:25:56.612
+!MESSAGE Software being installed: Mylyn Intent - CDO support (Incubation) 0.8.0.201306030818 (org.eclipse.mylyn.docs.intent.cdo.feature.feature.group 0.8.0.201306030818)
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 0 2014-02-23 14:25:56.612
+!MESSAGE Software currently installed: Eclipse Platform 3.7.0.I20110613-1736 (org.eclipse.platform.ide 3.7.0.I20110613-1736)
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 1 2014-02-23 14:25:56.612
+!MESSAGE Only one of the following can be installed at once: 
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2014-02-23 14:25:56.612
+!MESSAGE Eclipse UI 3.105.0.v20130522-1122 (org.eclipse.ui 3.105.0.v20130522-1122)
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2014-02-23 14:25:56.612
+!MESSAGE Eclipse UI 3.7.0.dist (org.eclipse.ui 3.7.0.dist)
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 1 2014-02-23 14:25:56.612
+!MESSAGE Cannot satisfy dependency:
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2014-02-23 14:25:56.612
+!MESSAGE From: Mylyn Intent - CDO support (Incubation) 0.8.0.201306030818 (org.eclipse.mylyn.docs.intent.cdo.feature.feature.group 0.8.0.201306030818)
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2014-02-23 14:25:56.613
+!MESSAGE To: org.eclipse.mylyn.docs.intent.example.cdo.server [0.8.0.201306030818]
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 1 2014-02-23 14:25:56.613
+!MESSAGE Cannot satisfy dependency:
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2014-02-23 14:25:56.613
+!MESSAGE From: Intent CDO Server examples 0.8.0.201306030818 (org.eclipse.mylyn.docs.intent.example.cdo.server 0.8.0.201306030818)
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2014-02-23 14:25:56.613
+!MESSAGE To: bundle org.eclipse.ui 3.7.100
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 1 2014-02-23 14:25:56.613
+!MESSAGE Cannot satisfy dependency:
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2014-02-23 14:25:56.613
+!MESSAGE From: Eclipse Platform 3.7.2.dist-9nF7UHagFqn9pElwWhC90gLz-soEuSGYmtSeiRH (org.eclipse.platform.feature.group 3.7.2.dist-9nF7UHagFqn9pElwWhC90gLz-soEuSGYmtSeiRH)
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2014-02-23 14:25:56.613
+!MESSAGE To: org.eclipse.rcp.feature.group [3.7.2.dist-8R9GFpOFUdy-521934]
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 1 2014-02-23 14:25:56.614
+!MESSAGE Cannot satisfy dependency:
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2014-02-23 14:25:56.614
+!MESSAGE From: Eclipse Platform 3.7.0.I20110613-1736 (org.eclipse.platform.ide 3.7.0.I20110613-1736)
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2014-02-23 14:25:56.614
+!MESSAGE To: org.eclipse.platform.feature.group [3.7.2.dist-9nF7UHagFqn9pElwWhC90gLz-soEuSGYmtSeiRH]
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 1 2014-02-23 14:25:56.614
+!MESSAGE Cannot satisfy dependency:
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2014-02-23 14:25:56.614
+!MESSAGE From: Eclipse RCP 3.7.2.dist-8R9GFpOFUdy-521934 (org.eclipse.rcp.feature.group 3.7.2.dist-8R9GFpOFUdy-521934)
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2014-02-23 14:25:56.614
+!MESSAGE To: org.eclipse.ui [3.7.0.dist]
+
+!ENTRY org.eclipse.equinox.p2.core 4 0 2014-02-23 14:34:38.225
+!MESSAGE Provisioning exception
+!STACK 1
+org.eclipse.equinox.p2.core.ProvisionException: No repository found at http://eclipse.org/egit.
+	at org.eclipse.equinox.internal.p2.repository.helpers.AbstractRepositoryManager.fail(AbstractRepositoryManager.java:393)
+	at org.eclipse.equinox.internal.p2.repository.helpers.AbstractRepositoryManager.loadRepository(AbstractRepositoryManager.java:636)
+	at org.eclipse.equinox.internal.p2.metadata.repository.MetadataRepositoryManager.loadRepository(MetadataRepositoryManager.java:96)
+	at org.eclipse.equinox.internal.p2.metadata.repository.MetadataRepositoryManager.loadRepository(MetadataRepositoryManager.java:92)
+	at org.eclipse.equinox.p2.ui.LoadMetadataRepositoryJob.doLoad(LoadMetadataRepositoryJob.java:117)
+	at org.eclipse.equinox.p2.ui.LoadMetadataRepositoryJob.runModal(LoadMetadataRepositoryJob.java:102)
+	at org.eclipse.equinox.internal.p2.ui.sdk.PreloadingRepositoryHandler$2.runModal(PreloadingRepositoryHandler.java:82)
+	at org.eclipse.equinox.p2.operations.ProvisioningJob.run(ProvisioningJob.java:177)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+!SUBENTRY 1 org.eclipse.equinox.p2.metadata.repository 4 1000 2014-02-23 14:34:38.227
+!MESSAGE No repository found at http://eclipse.org/egit.
+
+!ENTRY org.eclipse.equinox.p2.metadata.repository 4 1000 2014-02-23 14:34:42.443
+!MESSAGE No repository found at http://eclipse.org/egit.
+
+!ENTRY org.eclipse.equinox.p2.operations 4 0 2014-02-23 14:34:51.331
+!MESSAGE Operation details
+!SUBENTRY 1 org.eclipse.equinox.p2.director 4 1 2014-02-23 14:34:51.331
+!MESSAGE Cannot complete the install because of a conflicting dependency.
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 0 2014-02-23 14:34:51.331
+!MESSAGE Software being installed: Task focused interface for Eclipse Git Team Provider 3.2.0.201312181205-r (org.eclipse.egit.mylyn.feature.group 3.2.0.201312181205-r)
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 0 2014-02-23 14:34:51.331
+!MESSAGE Software currently installed: Eclipse Platform 3.7.0.I20110613-1736 (org.eclipse.platform.ide 3.7.0.I20110613-1736)
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 1 2014-02-23 14:34:51.331
+!MESSAGE Only one of the following can be installed at once: 
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2014-02-23 14:34:51.331
+!MESSAGE Team Support Core 3.6.0.dist (org.eclipse.team.core 3.6.0.dist)
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2014-02-23 14:34:51.331
+!MESSAGE Team Support Core 3.7.0.v20130514-1224 (org.eclipse.team.core 3.7.0.v20130514-1224)
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 1 2014-02-23 14:34:51.331
+!MESSAGE Cannot satisfy dependency:
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2014-02-23 14:34:51.332
+!MESSAGE From: Task focused interface for Eclipse Git Team Provider 3.2.0.201312181205-r (org.eclipse.egit.mylyn.feature.group 3.2.0.201312181205-r)
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2014-02-23 14:34:51.332
+!MESSAGE To: org.eclipse.egit.mylyn.ui [3.2.0.201312181205-r]
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 1 2014-02-23 14:34:51.332
+!MESSAGE Cannot satisfy dependency:
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2014-02-23 14:34:51.332
+!MESSAGE From: EGit Mylyn UI 3.2.0.201312181205-r (org.eclipse.egit.mylyn.ui 3.2.0.201312181205-r)
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2014-02-23 14:34:51.332
+!MESSAGE To: package org.eclipse.egit.ui [3.2.0,3.3.0)
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 1 2014-02-23 14:34:51.332
+!MESSAGE Cannot satisfy dependency:
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2014-02-23 14:34:51.332
+!MESSAGE From: Git Team Provider UI 3.2.0.201312181205-r (org.eclipse.egit.ui 3.2.0.201312181205-r)
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2014-02-23 14:34:51.332
+!MESSAGE To: bundle org.eclipse.team.core [3.6.100,4.0.0)
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 1 2014-02-23 14:34:51.332
+!MESSAGE Cannot satisfy dependency:
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2014-02-23 14:34:51.332
+!MESSAGE From: Eclipse Platform 3.7.2.dist-9nF7UHagFqn9pElwWhC90gLz-soEuSGYmtSeiRH (org.eclipse.platform.feature.group 3.7.2.dist-9nF7UHagFqn9pElwWhC90gLz-soEuSGYmtSeiRH)
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2014-02-23 14:34:51.332
+!MESSAGE To: org.eclipse.team.core [3.6.0.dist]
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 1 2014-02-23 14:34:51.332
+!MESSAGE Cannot satisfy dependency:
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2014-02-23 14:34:51.332
+!MESSAGE From: Eclipse Platform 3.7.0.I20110613-1736 (org.eclipse.platform.ide 3.7.0.I20110613-1736)
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2014-02-23 14:34:51.332
+!MESSAGE To: org.eclipse.platform.feature.group [3.7.2.dist-9nF7UHagFqn9pElwWhC90gLz-soEuSGYmtSeiRH]
+
+!ENTRY org.eclipse.equinox.p2.operations 4 0 2014-02-23 14:34:51.339
+!MESSAGE Operation details
+!SUBENTRY 1 org.eclipse.equinox.p2.director 4 1 2014-02-23 14:34:51.339
+!MESSAGE Cannot complete the install because of a conflicting dependency.
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 0 2014-02-23 14:34:51.339
+!MESSAGE Software being installed: Task focused interface for Eclipse Git Team Provider 3.2.0.201312181205-r (org.eclipse.egit.mylyn.feature.group 3.2.0.201312181205-r)
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 0 2014-02-23 14:34:51.339
+!MESSAGE Software currently installed: Eclipse Platform 3.7.0.I20110613-1736 (org.eclipse.platform.ide 3.7.0.I20110613-1736)
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 1 2014-02-23 14:34:51.339
+!MESSAGE Only one of the following can be installed at once: 
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2014-02-23 14:34:51.339
+!MESSAGE Team Support Core 3.6.0.dist (org.eclipse.team.core 3.6.0.dist)
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2014-02-23 14:34:51.339
+!MESSAGE Team Support Core 3.7.0.v20130514-1224 (org.eclipse.team.core 3.7.0.v20130514-1224)
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 1 2014-02-23 14:34:51.339
+!MESSAGE Cannot satisfy dependency:
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2014-02-23 14:34:51.339
+!MESSAGE From: Task focused interface for Eclipse Git Team Provider 3.2.0.201312181205-r (org.eclipse.egit.mylyn.feature.group 3.2.0.201312181205-r)
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2014-02-23 14:34:51.339
+!MESSAGE To: org.eclipse.egit.mylyn.ui [3.2.0.201312181205-r]
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 1 2014-02-23 14:34:51.339
+!MESSAGE Cannot satisfy dependency:
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2014-02-23 14:34:51.340
+!MESSAGE From: EGit Mylyn UI 3.2.0.201312181205-r (org.eclipse.egit.mylyn.ui 3.2.0.201312181205-r)
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2014-02-23 14:34:51.340
+!MESSAGE To: package org.eclipse.egit.ui [3.2.0,3.3.0)
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 1 2014-02-23 14:34:51.340
+!MESSAGE Cannot satisfy dependency:
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2014-02-23 14:34:51.340
+!MESSAGE From: Git Team Provider UI 3.2.0.201312181205-r (org.eclipse.egit.ui 3.2.0.201312181205-r)
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2014-02-23 14:34:51.340
+!MESSAGE To: bundle org.eclipse.team.core [3.6.100,4.0.0)
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 1 2014-02-23 14:34:51.340
+!MESSAGE Cannot satisfy dependency:
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2014-02-23 14:34:51.340
+!MESSAGE From: Eclipse Platform 3.7.2.dist-9nF7UHagFqn9pElwWhC90gLz-soEuSGYmtSeiRH (org.eclipse.platform.feature.group 3.7.2.dist-9nF7UHagFqn9pElwWhC90gLz-soEuSGYmtSeiRH)
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2014-02-23 14:34:51.340
+!MESSAGE To: org.eclipse.team.core [3.6.0.dist]
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 1 2014-02-23 14:34:51.340
+!MESSAGE Cannot satisfy dependency:
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2014-02-23 14:34:51.340
+!MESSAGE From: Eclipse Platform 3.7.0.I20110613-1736 (org.eclipse.platform.ide 3.7.0.I20110613-1736)
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2014-02-23 14:34:51.340
+!MESSAGE To: org.eclipse.platform.feature.group [3.7.2.dist-9nF7UHagFqn9pElwWhC90gLz-soEuSGYmtSeiRH]

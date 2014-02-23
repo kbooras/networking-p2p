@@ -1,0 +1,44 @@
+include MessageTypes;
+public class NormalMessage {
+		int length;
+		int type;
+		String payload;
+		
+		public NormalMessage()
+		{
+			length = -1;
+			type = -1;
+			payload = null;
+		}
+		public NormalMessage(int length, int type, String payload)
+		{
+			this.length = length;
+			this.type = type;
+			this.payload = payload;
+		}
+
+		public int getLength()
+		{
+			return length;
+		}
+		public void setLength(int length)
+		{
+			this.length = length;
+		}
+		public int getType()
+		{
+			return type;
+		}
+		public void setType(int type)
+		{
+			this.type = type;
+		}
+		public String getPayload()
+		{
+			return payload;
+		}
+		public void setPayload(String payload)
+		{
+			this.payload = payload;
+		}
+}

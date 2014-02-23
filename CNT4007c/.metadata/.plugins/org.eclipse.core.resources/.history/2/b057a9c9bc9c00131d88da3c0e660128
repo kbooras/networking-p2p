@@ -1,0 +1,13 @@
+
+public class HandshakeMessage {
+	String header;
+	String zeroBits;
+	int peerID;
+	
+	public HandshakeMessage()
+	{
+		this.header = null;
+		this.zeroBits = null;
+		peerID = -1;
+	}
+}

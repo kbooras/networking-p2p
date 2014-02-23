@@ -1,0 +1,12 @@
+package MessageTypes;
+
+public class Choke {
+	int length;
+	String payload;
+	
+	public Choke(int length, String payload)
+	{
+		this.length = length;
+		this.payload = payload;
+	}
+}

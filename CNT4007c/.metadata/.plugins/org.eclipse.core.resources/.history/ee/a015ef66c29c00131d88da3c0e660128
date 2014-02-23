@@ -1,0 +1,106 @@
+package MessageTypes;
+
+import NormalMessageTypes.*;
+
+public class NormalMessage {
+		int length;
+		int type;
+		String payload;
+		
+		public NormalMessage()
+		{
+			length = -1;
+			type = -1;
+			payload = null;
+		}
+		public NormalMessage(int length, int type, String payload)
+		{
+			this.length = length;
+			this.type = type;
+			this.payload = payload;
+			
+			SetType();
+		}
+
+		public int getLength()
+		{
+			return length;
+		}
+		public void setLength(int length)
+		{
+			this.length = length;
+		}
+		public int getType()
+		{
+			return type;
+		}
+		public void setType(int type)
+		{
+			this.type = type;
+		}
+		public String getPayload()
+		{
+			return payload;
+		}
+		public void setPayload(String payload)
+		{
+			this.payload = payload;
+		}
+		
+		public void SetType()
+		{
+			if(type == 0)
+			{
+				Choke choke = new Choke(length, payload);
+				
+				//choke.dosomething();
+			}
+			else if(type == 1)
+			{
+				Unchoke unchoke = new Unchoke(length, payload);
+				
+				//unchoke.dosomething();
+			}
+			else if(type == 2)
+			{
+				Interested interested = new Interested(length, payload);
+				
+				//interested.dosomething();
+			}
+			else if(type == 3)
+			{
+				NotInterested notInterested = new NotInterested(length, payload);
+				
+				//notInterested.dosomething();
+			}
+			else if(type == 4)
+			{
+				Have have = new Have(length, payload);
+				
+				//have.dosomething();
+			}
+			else if(type == 5)
+			{
+				Bitfield bitfield = new Bitfield(length, payload);
+				
+				//bitfield.dosomething();
+			}
+			else if(type == 6)
+			{
+				Request request = new Request(length, payload);
+				
+				//request.dosomething();
+			}
+			else if(type == 7)
+			{
+				Piece piece = new Piece(length, payload);
+				
+				//piece.dosomething();
+			}
+			else
+			{
+				//Return error if type does not equal one of the 8 enums
+			}
+
+		}
+}
