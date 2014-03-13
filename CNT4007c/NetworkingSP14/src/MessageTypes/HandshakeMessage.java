@@ -1,46 +1,66 @@
 package MessageTypes;
 
 public class HandshakeMessage {
-	String header;
-	String zeroBits;
-	int peerID;
-	
-	public HandshakeMessage()
+	public static int HandleMessage(String input)
 	{
-		this.header = null;
-		this.zeroBits = null;
-		peerID = -1;
+
+		try{
+			int peerID = ParseData(input);
+			return peerID;
+		}catch(Exception e)
+		{
+			System.out.println("Warning: Wrong Format For a 'Handshake Message'.");
+			return 0;
+		}
 	}
-	public HandshakeMessage(String header, String zeroBits, int peerID)
+	private static int ParseData(String input)
 	{
-		this.header = header;
-		this.zeroBits = zeroBits;
-		this.peerID = peerID;
-	}
-	
-	public String getHeader()
-	{
-		return header;
-	}
-	public void setHeader(String header)
-	{
-		this.header = header;
-	}
-	public String getZeroBits()
-	{
-		return zeroBits;
-	}
-	public void setZeroBits(String zeroBits)
-	{
-		this.zeroBits = zeroBits;
-	}
-	public int getPeerID()
-	{
+		String header = input.substring(0, 5);
+		String zeroBits = input.substring(5,28);
+		int peerID = Integer.parseInt(input.substring(28, 32));
+		
+		if(!(headerCheck(header) && zeroBitCheck(zeroBits)))
+		{
+			return 0;
+		}
+				
 		return peerID;
 	}
-	public void setPeerID(int peerID)
+	private static boolean headerCheck(String header)
 	{
-		this.peerID = peerID;
+		try{
+			if(header.equalsIgnoreCase("HELLO"))
+				return true;
+		}catch(Exception e)
+		{
+			return false;
+		}
+		
+		return false;
 	}
-	
+	private static boolean zeroBitCheck(String zeroBits)
+	{
+		try{
+			for(int a = 0; a < zeroBits.length(); a++)
+			{
+				if(zeroBits.charAt(a) != '0')
+				{
+					System.out.println("Warning: The ZeroBit portion of Handshake Message has the wrong format.");
+					return false;
+				}
+			}
+			
+			if(zeroBits.length() != 0)
+			{
+				return true;
+			}
+			
+			System.out.println("Warning: The ZeroBit portion of Handshake Message is empty.");
+		}catch(Exception e)
+		{
+			return false;
+		}
+		
+		return false;
+	}
 }

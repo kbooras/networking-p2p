@@ -5,6 +5,8 @@ import java.io.BufferedWriter;
 import java.io.IOException;
 import java.util.Date;
 
+import Utilities.Log;
+
 public class NotInterested {
 	int length;
 	String payload;
@@ -33,29 +35,9 @@ public class NotInterested {
 	}
 
 	//Functionality
-	public void doSomething()
+	public void doSomething(int sendingID, int receivingID)
 	{
 		//generate log
-		try {
-			Date date = new Date();
-			String log = "[" + date.toString() + "]: Peer " + receivingID + 
-			" received a 'not interested' message from " + sendingID + " for the piece " + payload;
-
-			String fileName = "log_peer_[" + receivingID + "].log";
-			File file = new File(fileName);
-
-			//if file for log does not exist, make it
-			if (!file.exists()) {
-				file.createNewFile();
-			}
-
-			//append data to the file
-			FileWriter fileWriter = new FileWriter(file.getName(), true);
-			BufferedWriter bufferWriter = new BufferedWriter(fileWriter);
-			bufferWriter.write(log);
-			bufferWriter.close();
-		}catch(IOException e) {
-			e.printStackTrace();
-		}
+		Log.Status(receivingID, sendingID, payload, "notInterested");
 	}
 }
