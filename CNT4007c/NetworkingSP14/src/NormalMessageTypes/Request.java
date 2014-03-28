@@ -1,35 +1,10 @@
 package NormalMessageTypes;
 
-public class Request {
-	int length;
-	String payload;
+import MessageTypes.NormalMessage;
 
-	public Request(int length, String payload)
+public class Request extends NormalMessage{
+	public Request(String data, int userID)
 	{
-		this.length = length;
-		this.payload = payload;
-	}
-
-	public int getLength()
-	{
-		return length;
-	}
-	public void setLength(int length)
-	{
-		this.length = length;
-	}
-	public String getPayload()
-	{
-		return payload;
-	}
-	public void setPayload(String payload)
-	{
-		this.payload = payload;
-	}
-
-	//Functionality
-	public void doSomething()
-	{
-
+		super(data, userID);
 	}
 }

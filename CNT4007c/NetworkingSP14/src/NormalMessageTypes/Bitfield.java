@@ -1,35 +1,13 @@
 package NormalMessageTypes;
 
-public class Bitfield {
-	int length;
-	String payload;
+import MessageTypes.NormalMessage;
+
+public class Bitfield extends NormalMessage{
+	public Byte[] bytes;
 	
-	public Bitfield(int length, String payload)
+	public Bitfield(String data, int senderID, Byte[] bytes)
 	{
-		this.length = length;
-		this.payload = payload;
-	}
-	
-	public int getLength()
-	{
-		return length;
-	}
-	public void setLength(int length)
-	{
-		this.length = length;
-	}
-	public String getPayload()
-	{
-		return payload;
-	}
-	public void setPayload(String payload)
-	{
-		this.payload = payload;
-	}
-	
-	//Functionality
-	public void doSomething()
-	{
-		
+		super(data, senderID);
+		this.bytes = bytes;
 	}
 }

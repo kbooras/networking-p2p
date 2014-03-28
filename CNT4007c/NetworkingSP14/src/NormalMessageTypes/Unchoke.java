@@ -1,35 +1,10 @@
 package NormalMessageTypes;
 
-public class Unchoke {
-	int length;
-	String payload;
+import MessageTypes.NormalMessage;
 
-	public Unchoke(int length, String payload)
+public class Unchoke extends NormalMessage{
+	public Unchoke(String data, int userID)
 	{
-		this.length = length;
-		this.payload = payload;
-	}
-
-	public int getLength()
-	{
-		return length;
-	}
-	public void setLength(int length)
-	{
-		this.length = length;
-	}
-	public String getPayload()
-	{
-		return payload;
-	}
-	public void setPayload(String payload)
-	{
-		this.payload = payload;
-	}
-
-	//Functionality
-	public void doSomething()
-	{
-
+		super(data, userID);
 	}
 }

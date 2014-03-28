@@ -1,35 +1,11 @@
 package NormalMessageTypes;
 
-public class Choke {
-	int length;
-	String payload;
+import MessageTypes.NormalMessage;
+
+public class Choke extends NormalMessage{
 	
-	public Choke(int length, String payload)
+	public Choke(String data, int sendingID)
 	{
-		this.length = length;
-		this.payload = payload;
-	}
-	
-	public int getLength()
-	{
-		return length;
-	}
-	public void setLength(int length)
-	{
-		this.length = length;
-	}
-	public String getPayload()
-	{
-		return payload;
-	}
-	public void setPayload(String payload)
-	{
-		this.payload = payload;
-	}
-	
-	//Functionality
-	public void doSomething()
-	{
-		
+		super(data, sendingID);
 	}
 }
