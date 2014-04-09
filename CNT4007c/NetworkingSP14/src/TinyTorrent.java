@@ -7,28 +7,66 @@ import java.util.Scanner;
 
 import MessageTypes.Message;
 import NormalMessageTypes.Bitfield;
+import Peer.Peer;
 import Utilities.Common;
 
 public class TinyTorrent {
 	public static Common common;
 	public static Bitfield bitfield = new Bitfield(0, null, false);
-	public static ArrayList<Message> messages = new ArrayList<Message>();
 	public static ArrayList<Peer> peers = new ArrayList<Peer>();
 	public static boolean running = true;
 	public static String file1 = "Common.cfg";
 	public static String file2 = "PeerInfo.cfg";
 	
-	public static void main(String[] args) throws IOException
-	{		
+	public static String peerID = "1001";
+	public static String portNumber = "6008";
+	
+	public static void main(String[] args) throws IOException, InterruptedException
+	{
+		try{
+			peerID = args[0];
+			portNumber = args[1];
+		}catch(Exception e)
+		{
+			args = fakeValues();
+		}
+		
 		readCommon();
 		readPeerInfo();
 		
-		while(running)
-		{
-			running = checkBitfield(bitfield);
-		}
-		
 		checkValues();
+		
+		inputCheck(args);
+	}
+	private static String[] fakeValues()
+	{
+		String[] returnArray = new String[2];
+		returnArray[0] = peerID;
+		returnArray[1] = portNumber;
+		return returnArray;
+	}
+	private static void inputCheck(String[] args) throws InterruptedException
+	{
+		if(args.length != 2)
+		{
+			System.err.println("Invalid Input!");
+			System.err.println("Must be executed in the following form:");
+			System.err.println("java PeerID PortNumber");
+			Thread.sleep(1000);
+			System.out.println("Closing in \n5...");
+			Thread.sleep(1000);
+			System.out.println("4...");
+			Thread.sleep(1000);
+			System.out.println("3...");
+			Thread.sleep(1000);
+			System.out.println("2...");
+			Thread.sleep(1000);
+			System.out.println("1...");
+			Thread.sleep(1000);
+			System.out.println("Goodbye!");
+			Thread.sleep(1000);
+			return;
+		}
 	}
 	private static void checkValues()
 	{
@@ -42,6 +80,7 @@ public class TinyTorrent {
 		System.out.println("Piece Size: "+common.PieceSize);
 		System.out.println("------------------------------------");
 		System.out.println(peers.size()+" Peers:");
+		
 		for(int a = 0; a < peers.size(); a++)
 		{
 			System.out.println("Peer["+a+"]");
@@ -50,6 +89,7 @@ public class TinyTorrent {
 			System.out.println("Listening Port: "+peers.get(a).listeningPort);
 			System.out.println("Has the file? "+peers.get(a).hasFile);
 		}
+		
 		System.out.println("====================================");
 	}
 	private static void readCommon() throws IOException
@@ -163,5 +203,39 @@ public class TinyTorrent {
 	private static boolean checkBitfield(Bitfield bitfield)
 	{
 		return bitfield.checkCompletion();
+	}
+	
+	private static int[] parseBitfieldIndex(Bitfield bitfield)
+	{
+		//
+		int[] piecesOfByte = new int[8];
+		
+		int index = 0;
+		
+		int indexValue = bitfield.payload[index];
+		
+		while(indexValue != 0)
+		{
+			int check = 1;
+			int power = 0;
+			
+			while(check <= indexValue)
+			{
+				check *= 2;
+				power++;
+			}
+			
+			if(check != 1)
+			{
+				check /= 2;
+				power--;
+			}
+			
+			
+			piecesOfByte[power] = 1;
+			indexValue -= check;
+		}
+		
+		return piecesOfByte;
 	}
 }

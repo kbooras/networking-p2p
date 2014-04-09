@@ -1,10 +1,35 @@
 package NormalMessageTypes;
 
-import MessageTypes.NormalMessage;
+public class Piece {
+	int length;
+	String payload;
 
-public class Piece extends NormalMessage{
-	public Piece(String data, int userID)
+	public Piece(int length, String payload)
 	{
-		super(data, userID);
+		this.length = length;
+		this.payload = payload;
+	}
+
+	public int getLength()
+	{
+		return length;
+	}
+	public void setLength(int length)
+	{
+		this.length = length;
+	}
+	public String getPayload()
+	{
+		return payload;
+	}
+	public void setPayload(String payload)
+	{
+		this.payload = payload;
+	}
+
+	//Functionality
+	public void doSomething()
+	{
+
 	}
 }

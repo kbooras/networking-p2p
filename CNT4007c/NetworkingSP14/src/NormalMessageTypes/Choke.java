@@ -1,11 +1,10 @@
 package NormalMessageTypes;
 
-import MessageTypes.NormalMessage;
-
-public class Choke extends NormalMessage{
+public class Choke {
+	int senderID;
 	
-	public Choke(String data, int sendingID)
+	public Choke(int senderID)
 	{
-		super(data, sendingID);
+		this.senderID = senderID;
 	}
 }

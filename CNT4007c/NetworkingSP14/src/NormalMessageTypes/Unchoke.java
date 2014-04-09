@@ -1,10 +1,10 @@
 package NormalMessageTypes;
 
-import MessageTypes.NormalMessage;
-
-public class Unchoke extends NormalMessage{
-	public Unchoke(String data, int userID)
+public class Unchoke {
+	int senderID;
+	
+	public Unchoke(int senderID)
 	{
-		super(data, userID);
+		this.senderID = senderID;
 	}
 }

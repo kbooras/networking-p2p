@@ -1,4 +1,4 @@
-
+package Peer;
 public class Peer {
 	public int peerID;
 	public String hostName;

@@ -1,6 +1,9 @@
 package MessageTypes;
 
-public class HandshakeMessage {
+public class HandshakeMessage extends Message{
+	public HandshakeMessage(String data, int peerID) {
+		super(data, peerID);
+	}
 	public static int HandleMessage(String input)
 	{
 
