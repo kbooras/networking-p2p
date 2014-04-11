@@ -1,24 +1,18 @@
 package MessageTypes;
 
+public class NormalMessage extends Message{
+	private static final long serialVersionUID = 1L;
+	public int type;
 
-import NormalMessageTypes.*;;
-
-public abstract class NormalMessage extends Message{
-
-	static int length, type, peerID;
-	static String payload;
-
-	public NormalMessage(String data, int peerID)
+	public NormalMessage(byte[] data, int length, int peerID)
 	{
-		super(data, peerID);
+		super(data, length, peerID, false);
 		ParseData(data);
 	}
 	
 	
-	private static void ParseData(String data)
+	private static void ParseData(byte[] data)
 	{
-		length = Integer.parseInt(data.substring(0,4));
-		type = Integer.parseInt(data.substring(4,5));
-		payload = data.substring(6, data.length()-1);
+//		parse type
 	}
 }

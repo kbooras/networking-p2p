@@ -1,10 +1,13 @@
 package NormalMessageTypes;
 
-public class Unchoke {
-	int senderID;
-	
-	public Unchoke(int senderID)
+import MessageTypes.NormalMessage;
+
+public class Unchoke extends NormalMessage
+{
+	private static final long serialVersionUID = 1L;
+
+	public Unchoke(int peerID, int length)
 	{
-		this.senderID = senderID;
+		super(null, length, peerID);
 	}
 }

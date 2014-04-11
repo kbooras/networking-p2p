@@ -12,12 +12,11 @@ import Utilities.Common;
 
 public class TinyTorrent {
 	public static Common common;
-	public static Bitfield bitfield = new Bitfield(0, null, false);
+	public static Bitfield bitfield = null;
 	public static ArrayList<Peer> peers = new ArrayList<Peer>();
 	public static boolean running = true;
 	public static String file1 = "Common.cfg";
 	public static String file2 = "PeerInfo.cfg";
-	
 	public static String peerID = "1001";
 	public static String portNumber = "6008";
 	
@@ -33,10 +32,10 @@ public class TinyTorrent {
 		
 		readCommon();
 		readPeerInfo();
-		
 		checkValues();
-		
 		inputCheck(args);
+		
+		//Set off client or host thread based on input from command line
 	}
 	private static String[] fakeValues()
 	{
@@ -200,42 +199,36 @@ public class TinyTorrent {
 			br.close();
 		}
 	}
-	private static boolean checkBitfield(Bitfield bitfield)
-	{
-		return bitfield.checkCompletion();
-	}
-	
-	private static int[] parseBitfieldIndex(Bitfield bitfield)
-	{
-		//
-		int[] piecesOfByte = new int[8];
-		
-		int index = 0;
-		
-		int indexValue = bitfield.payload[index];
-		
-		while(indexValue != 0)
-		{
-			int check = 1;
-			int power = 0;
-			
-			while(check <= indexValue)
-			{
-				check *= 2;
-				power++;
-			}
-			
-			if(check != 1)
-			{
-				check /= 2;
-				power--;
-			}
-			
-			
-			piecesOfByte[power] = 1;
-			indexValue -= check;
-		}
-		
-		return piecesOfByte;
-	}
+//	private static int[] parseBitfieldIndex(Bitfield bitfield)
+//	{
+//		int[] piecesOfByte = new int[8];
+//		
+//		int index = 0;
+//		
+//		int indexValue = bitfield.payload[index];
+//		
+//		while(indexValue != 0)
+//		{
+//			int check = 1;
+//			int power = 0;
+//			
+//			while(check <= indexValue)
+//			{
+//				check *= 2;
+//				power++;
+//			}
+//			
+//			if(check != 1)
+//			{
+//				check /= 2;
+//				power--;
+//			}
+//			
+//			
+//			piecesOfByte[power] = 1;
+//			indexValue -= check;
+//		}
+//		
+//		return piecesOfByte;
+//	}
 }

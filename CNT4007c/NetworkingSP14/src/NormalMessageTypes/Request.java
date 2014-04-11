@@ -1,35 +1,13 @@
 package NormalMessageTypes;
 
-public class Request {
-	int length;
-	String payload;
+import MessageTypes.NormalMessage;
 
-	public Request(int length, String payload)
-	{
-		this.length = length;
-		this.payload = payload;
-	}
+public class Request extends NormalMessage
+{
+	private static final long serialVersionUID = 1L;
 
-	public int getLength()
+	public Request(byte[] payload, int length, int peerID)
 	{
-		return length;
-	}
-	public void setLength(int length)
-	{
-		this.length = length;
-	}
-	public String getPayload()
-	{
-		return payload;
-	}
-	public void setPayload(String payload)
-	{
-		this.payload = payload;
-	}
-
-	//Functionality
-	public void doSomething()
-	{
-
+		super(payload, length, peerID);
 	}
 }

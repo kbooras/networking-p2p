@@ -7,7 +7,7 @@ import java.io.IOException;
 import java.util.Date;
 
 public class Log {
-	public static void Status(int receivingID, int sendingID, String payload, String type)
+	public static void Status(int receivingID, int sendingID, byte[] payload, String type)
 	{
 		try {
 			Date date = new Date();

@@ -1,10 +1,13 @@
 package NormalMessageTypes;
 
-public class Choke {
-	int senderID;
-	
-	public Choke(int senderID)
+import MessageTypes.NormalMessage;
+
+public class Choke extends NormalMessage 
+{	
+	private static final long serialVersionUID = 1L;
+
+	public Choke(int peerID, int length)
 	{
-		this.senderID = senderID;
+		super(null, length, peerID);
 	}
 }
