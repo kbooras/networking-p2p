@@ -4,7 +4,7 @@ public class NormalMessage extends Message{
 	private static final long serialVersionUID = 1L;
 	public int type;
 
-	public NormalMessage(byte[] data, int length, int peerID)
+	public NormalMessage(byte[] data, int length, String peerID)
 	{
 		super(data, length, peerID, false);
 		ParseData(data);

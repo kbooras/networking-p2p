@@ -6,7 +6,7 @@ public class Choke extends NormalMessage
 {	
 	private static final long serialVersionUID = 1L;
 
-	public Choke(int peerID, int length)
+	public Choke(String peerID, int length)
 	{
 		super(null, length, peerID);
 	}

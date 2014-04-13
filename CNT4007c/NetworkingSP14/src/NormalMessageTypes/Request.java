@@ -6,7 +6,7 @@ public class Request extends NormalMessage
 {
 	private static final long serialVersionUID = 1L;
 
-	public Request(byte[] payload, int length, int peerID)
+	public Request(byte[] payload, int length, String peerID)
 	{
 		super(payload, length, peerID);
 	}

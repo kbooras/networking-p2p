@@ -6,7 +6,7 @@ public class Unchoke extends NormalMessage
 {
 	private static final long serialVersionUID = 1L;
 
-	public Unchoke(int peerID, int length)
+	public Unchoke(String peerID, int length)
 	{
 		super(null, length, peerID);
 	}

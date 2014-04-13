@@ -5,37 +5,90 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-import MessageTypes.Message;
-import NormalMessageTypes.Bitfield;
 import Peer.Peer;
+import Threads.*;
 import Utilities.Common;
 
 public class TinyTorrent {
 	public static Common common;
-	public static Bitfield bitfield = null;
+	public static Host host;
+	public static Client client;
 	public static ArrayList<Peer> peers = new ArrayList<Peer>();
-	public static boolean running = true;
-	public static String file1 = "Common.cfg";
-	public static String file2 = "PeerInfo.cfg";
+	public static final String file1 = "Common.cfg";
+	public static final String file2 = "PeerInfo.cfg";
 	public static String peerID = "1001";
 	public static String portNumber = "6008";
+	public static boolean running = true;
+	
 	
 	public static void main(String[] args) throws IOException, InterruptedException
-	{
+	{		
 		try{
 			peerID = args[0];
 			portNumber = args[1];
 		}catch(Exception e)
 		{
 			args = fakeValues();
+			peerID = args[0];
+			portNumber = args[1];
 		}
 		
 		readCommon();
 		readPeerInfo();
-		checkValues();
-		inputCheck(args);
 		
+		inputCheck(args);
+		printValues();
+			
 		//Set off client or host thread based on input from command line
+		InitiateThread();
+	}
+	private static void InitiateThread() throws InterruptedException
+	{
+		boolean recognizedUser = false;
+		host = null;
+		client = null;
+		
+		for(int a = 0; a < peers.size(); a++)
+		{
+			if(peers.get(a).peerID.equals(peerID))
+			{
+				if(peers.get(a).hasFile)
+				{
+					host = new Host(common, peers, peerID, portNumber);
+					host.run();
+					recognizedUser = true;
+				}
+				else
+				{
+					client = new Client(common, peers, peerID, portNumber);
+					client.run();
+					recognizedUser = true;
+				}
+			}
+		}
+		
+		if(!recognizedUser)
+		{
+			System.err.println("Peer ID: " + peerID + " not recognized!");
+			CloseProgram();
+		}
+	}
+	private static void CloseProgram() throws InterruptedException
+	{
+		Thread.sleep(1000);
+		System.out.println("Closing in \n5...");
+		Thread.sleep(1000);
+		System.out.println("4...");
+		Thread.sleep(1000);
+		System.out.println("3...");
+		Thread.sleep(1000);
+		System.out.println("2...");
+		Thread.sleep(1000);
+		System.out.println("1...");
+		Thread.sleep(1000);
+		System.out.println("Goodbye!");
+		Thread.sleep(1000);
+		return;
 	}
 	private static String[] fakeValues()
 	{
@@ -50,24 +103,12 @@ public class TinyTorrent {
 		{
 			System.err.println("Invalid Input!");
 			System.err.println("Must be executed in the following form:");
-			System.err.println("java PeerID PortNumber");
-			Thread.sleep(1000);
-			System.out.println("Closing in \n5...");
-			Thread.sleep(1000);
-			System.out.println("4...");
-			Thread.sleep(1000);
-			System.out.println("3...");
-			Thread.sleep(1000);
-			System.out.println("2...");
-			Thread.sleep(1000);
-			System.out.println("1...");
-			Thread.sleep(1000);
-			System.out.println("Goodbye!");
-			Thread.sleep(1000);
+			System.err.println("java TinyTorrent PeerID PortNumber");
+			CloseProgram();
 			return;
 		}
 	}
-	private static void checkValues()
+	private static void printValues()
 	{
 		System.out.println("====================================");
 		System.out.println("Common Info:");
@@ -162,7 +203,7 @@ public class TinyTorrent {
 		}
 		
 		try{
-			int peerID;
+			String peerID;
 			String hostName;
 			int listeningPort;
 			int fileCheck;
@@ -172,7 +213,7 @@ public class TinyTorrent {
 			while (line != null) 
 			{
 				Scanner scanner = new Scanner(line);
-				peerID = Integer.parseInt(scanner.next());
+				peerID = scanner.next();
 				hostName = scanner.next();
 				listeningPort = Integer.parseInt(scanner.next());
 				fileCheck = Integer.parseInt(scanner.next().trim());
@@ -199,36 +240,4 @@ public class TinyTorrent {
 			br.close();
 		}
 	}
-//	private static int[] parseBitfieldIndex(Bitfield bitfield)
-//	{
-//		int[] piecesOfByte = new int[8];
-//		
-//		int index = 0;
-//		
-//		int indexValue = bitfield.payload[index];
-//		
-//		while(indexValue != 0)
-//		{
-//			int check = 1;
-//			int power = 0;
-//			
-//			while(check <= indexValue)
-//			{
-//				check *= 2;
-//				power++;
-//			}
-//			
-//			if(check != 1)
-//			{
-//				check /= 2;
-//				power--;
-//			}
-//			
-//			
-//			piecesOfByte[power] = 1;
-//			indexValue -= check;
-//		}
-//		
-//		return piecesOfByte;
-//	}
 }

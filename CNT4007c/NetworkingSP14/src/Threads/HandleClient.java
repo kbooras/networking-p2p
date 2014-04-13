@@ -1,25 +1,36 @@
 package Threads;
 
 import java.net.Socket;
+import java.util.ArrayList;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.io.OutputStream;
 
 import MessageTypes.*;
 import NormalMessageTypes.*;
+import Peer.Peer;
+import Utilities.Bitfield;
 
-public class HandleClient extends Thread{
+public class HandleClient extends Thread
+{
+	InputStream input = null;
+	ObjectInputStream object = null;
+	OutputStream output = null;
+	ObjectOutputStream outputObject = null;
+	Bitfield hostBitfield;
 	Socket socket;
-	int portNumber;
+	String peerID;
 	
-	public HandleClient(Socket socket)
+	public HandleClient(Socket socket, Bitfield bitfield, String peerID)
 	{
 		this.socket = socket;
+		this.hostBitfield = bitfield;
+		this.peerID = peerID;
 	}
 	public void run()
 	{
-		InputStream input = null;
-		ObjectInputStream object = null;
 		try {
 			input = socket.getInputStream();
 			object = new ObjectInputStream(input);
@@ -28,7 +39,13 @@ public class HandleClient extends Thread{
 			
 			if(message.isHandshake)
 			{
-				//Handle handshake message
+				//If handshake, send bitfield as ack
+				BitfieldM bitfieldM = new BitfieldM(hostBitfield, (hostBitfield.size + peerID.length()), peerID);
+				
+				output = socket.getOutputStream();
+				outputObject = new ObjectOutputStream(output);
+				
+				outputObject.writeObject(bitfieldM);
 			}
 			else
 			{
@@ -45,7 +62,7 @@ public class HandleClient extends Thread{
 				{
 					Unchoke unchoke = new Unchoke(normMessage.peerID, normMessage.length);
 					
-					//Figure out later
+					//Generate request for random missing piece (TBD by bitfield comparison)
 				}
 				else if(normMessage.type == 2)
 				{
@@ -56,19 +73,22 @@ public class HandleClient extends Thread{
 				else if(normMessage.type == 3)
 				{
 					//Peer has said that it is not interested in any piece of the file
+					//Do something?
 					return;
 				}
 				else if(normMessage.type == 4)
 				{
-					System.out.println("Error, should not have received any 'Have' messages!");
-					System.out.println("Received 'Have' message from peerID: " + normMessage.peerID);
-					return;
+					Have have = new Have(normMessage.data, normMessage.length, normMessage.peerID);
+					
+					//check to see if you have the piece or not
+					//if so, not interested
+					//if not, interested
 				}
 				else if(normMessage.type == 5)
 				{
-					System.out.println("Error, should not have received any 'Bitfield' messages!");
-					System.out.println("Received 'Bitfield' message from peerID: " + normMessage.peerID);
-					return;
+					BitfieldM bitfieldM = new BitfieldM(new Bitfield(normMessage.data), normMessage.length, normMessage.peerID);
+					
+					//Compare bitfields and send interested/uninterested
 				}
 				else if(normMessage.type == 6)
 				{
@@ -78,9 +98,7 @@ public class HandleClient extends Thread{
 				}
 				else if(normMessage.type == 7)
 				{
-					System.out.println("Error, should not have received any 'Piece' messages!");
-					System.out.println("Received 'Piece' message from peerID: " + normMessage.peerID);
-					return;
+					Piece piece = new Piece(normMessage.data, normMessage.length, normMessage.peerID);
 				}
 			}
 		}
@@ -90,15 +108,14 @@ public class HandleClient extends Thread{
 		}
 		finally
 		{
-			if(input != null)
+			if(outputObject != null)
 			{
 				try {
-					input.close();
+					outputObject.close();
 				} catch (IOException e) {
 					e.printStackTrace();
 				}
 			}
-			
 			if(object != null)
 			{
 				try {
@@ -107,7 +124,22 @@ public class HandleClient extends Thread{
 					e.printStackTrace();
 				}
 			}
-			
+			if(input != null)
+			{
+				try {
+					input.close();
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+			}
+			if(output != null)
+			{
+				try {
+					output.close();
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+			}
 			if(socket != null)
 			{
 				try {
