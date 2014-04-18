@@ -6,12 +6,14 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutput;
 import java.io.ObjectOutputStream;
 import java.io.OutputStream;
+import java.net.ServerSocket;
 import java.net.Socket;
 import java.net.SocketAddress;
 import java.net.UnknownHostException;
 import java.util.ArrayList;
 
 import Utilities.Bitfield;
+import Utilities.Protocol;
 import MessageTypes.HandshakeMessage;
 import NormalMessageTypes.BitfieldM;
 import Peer.Peer;
@@ -20,12 +22,13 @@ import Utilities.Common;
 public class Client extends Thread{
 	public static ArrayList<Peer> peers;
 	public static ArrayList<Peer> neighbors;
-	public static Common common;
+	public ArrayList<Thread> threads;
+	public Common common;
 	public static Bitfield bitfield;
-	public static String peerID;
-	public static String port;
+	public String peerID;
+	public String port;
 	public static boolean running;
-	public static int hostIndex;
+	public int hostIndex;
 
 	public Client(Common common, ArrayList<Peer> peers, String peerID, String port)
 	{
@@ -39,6 +42,7 @@ public class Client extends Thread{
 	}
 	public void run()
 	{
+		threads = new ArrayList<Thread>();
 		bitfield.bitfield = setBitfield();
 		
 		InputStream input = null;
@@ -49,6 +53,7 @@ public class Client extends Thread{
 
 		try {			
 			Socket socket = new Socket(peers.get(hostIndex).hostName, peers.get(hostIndex).listeningPort);
+			ServerSocket serverSocket = new ServerSocket(Integer.parseInt(port));
 			byte[] hsData = setHandshakeBytes();
 
 			HandshakeMessage hs = new HandshakeMessage(hsData, peerID);
@@ -61,10 +66,15 @@ public class Client extends Thread{
 
 			objectOutput.writeObject(hs);
 			
-			//Spin off Host Thread to get pieces
-			HandleClient clientThread = new HandleClient(socket, bitfield, peerID);
-			clientThread.run();
+			running = true;
+			while(running)
+			{
+				Thread thread = new HandleClient(serverSocket.accept(), bitfield, peerID);
+				threads.add(thread);
+				thread.run();
+			}
 			
+			closeThreads();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -106,10 +116,6 @@ public class Client extends Thread{
 				}
 			}
 		}
-	}
-	public void stopThread()
-	{
-		running = false;
 	}
 	private byte[] setHandshakeBytes()
 	{
@@ -165,16 +171,18 @@ public class Client extends Thread{
 		
 		byte[] temp = new byte[numByteIndices];
 		
-		for(int a = 0; a < temp.length-1; a++)
+		for(int a = 0; a < temp.length; a++)
 		{
 			temp[a] = (byte) 0;
 		}
 		
-		if(!evenDivision)
-		{			
-			temp[temp.length-1] = (byte) 0;
-		}
-		
 		return temp;
+	}
+	private void closeThreads()
+	{
+		for(int a = 0; a < threads.size(); a++)
+		{
+			threads.get(a).stop();
+		}
 	}
 }

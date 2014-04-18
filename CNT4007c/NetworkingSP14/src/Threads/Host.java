@@ -11,6 +11,7 @@ import Utilities.Common;
 
 public class Host extends Thread
 {
+	public ArrayList<Thread> threads;
 	Bitfield bitfield;
 	Common common;
 	ArrayList<Peer> peers;
@@ -62,6 +63,7 @@ public class Host extends Thread
 	}
 	public void run()
 	{
+		threads = new ArrayList<Thread>();
 		ServerSocket serverSocket = null;
 		try{
 			serverSocket = new ServerSocket(Integer.parseInt(portNumber));
@@ -69,7 +71,9 @@ public class Host extends Thread
 			running = true;
 			while(running)
 			{
-				new HandleClient(serverSocket.accept(), bitfield, peerID).run();
+				Thread thread = new HandleClient(serverSocket.accept(), bitfield, peerID);
+				threads.add(thread);
+				thread.run();
 			}
 		}
 		catch(Exception e)
@@ -88,8 +92,11 @@ public class Host extends Thread
 			}
 		}
 	}
-	public void stopThread()
+	private void closeThreads()
 	{
-		running = false;
+		for(int a = 0; a < threads.size(); a++)
+		{
+			threads.get(a).stop();
+		}
 	}
 }

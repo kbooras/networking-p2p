@@ -58,7 +58,6 @@ public class Protocol {
 		{
 			handleClient();
 		}
-
 	}
 	private void handleHost()
 	{
@@ -67,6 +66,11 @@ public class Protocol {
 			object = new ObjectInputStream(input);
 
 			Message message = (Message) object.readObject();
+			
+			if(message == null)
+			{
+				return;
+			}
 
 			if(message.isHandshake)
 			{
@@ -160,6 +164,11 @@ public class Protocol {
 
 			Message message = (Message) object.readObject();
 
+			if(message == null)
+			{
+				return;
+			}
+			
 			if(message.isHandshake)
 			{
 
@@ -185,7 +194,6 @@ public class Protocol {
 					case 0: 
 						Choke choke = new Choke(normMessage.peerID, normMessage.length);
 						
-	
 						return;
 					case 1: 
 						Unchoke unchoke = new Unchoke(normMessage.peerID, normMessage.length);

@@ -23,6 +23,8 @@ public class TinyTorrent {
 	
 	public static void main(String[] args) throws IOException, InterruptedException
 	{		
+		
+		
 		try{
 			peerID = args[0];
 			portNumber = args[1];

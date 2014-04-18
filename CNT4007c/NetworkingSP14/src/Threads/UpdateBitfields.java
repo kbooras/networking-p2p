@@ -62,8 +62,4 @@ public class UpdateBitfields extends Thread
 			}
 		}
 	}
-	public void stopThread()
-	{
-		running = false;
-	}
 }
