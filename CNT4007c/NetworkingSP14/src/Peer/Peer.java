@@ -7,6 +7,7 @@ public class Peer {
 	public String hostName;
 	public int listeningPort;
 	public boolean hasFile;
+	public boolean choked;
 	public Bitfield bitfield;
 	
 	public Peer(String peerID, String hostName, int listeningPort, boolean hasFile)
@@ -16,6 +17,7 @@ public class Peer {
 		this.listeningPort = listeningPort;
 		this.hasFile = hasFile;
 		this.bitfield = null;
+		this.choked = false;
 	}
 	public void setBitfield(Bitfield bitfield)
 	{

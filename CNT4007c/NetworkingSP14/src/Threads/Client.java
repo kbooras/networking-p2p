@@ -39,6 +39,8 @@ public class Client extends Thread{
 	}
 	public void run()
 	{
+		bitfield.bitfield = setBitfield();
+		
 		InputStream input = null;
 		ObjectInputStream objectInput = null;
 
@@ -141,5 +143,38 @@ public class Client extends Thread{
 				break;
 			}
 		}
+	}
+	private byte[] setBitfield()
+	{
+		int numChunks = common.FileSize/common.PieceSize;
+		boolean evenDivision = common.FileSize%common.PieceSize == 0;
+		
+		if(!evenDivision)
+		{
+			numChunks++;
+		}
+		
+		int numByteIndices = numChunks/8;
+		int bitsInRemainder = (numChunks%8);
+		boolean evenDivision2 = bitsInRemainder==0;
+		
+		if(!evenDivision2)
+		{
+			numByteIndices++; 
+		}
+		
+		byte[] temp = new byte[numByteIndices];
+		
+		for(int a = 0; a < temp.length-1; a++)
+		{
+			temp[a] = (byte) 0;
+		}
+		
+		if(!evenDivision)
+		{			
+			temp[temp.length-1] = (byte) 0;
+		}
+		
+		return temp;
 	}
 }

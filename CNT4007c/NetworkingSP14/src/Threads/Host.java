@@ -24,32 +24,41 @@ public class Host extends Thread
 		this.peers = peers;
 		this.portNumber = portNumber;
 		this.peerID = peerID;
-		setBitfield();
+		this.bitfield = new Bitfield(setBitfield());
 	}
 	//BRING UP: SET BITFIELD
-	private void setBitfield()
+	private byte[] setBitfield()
 	{
-		int numIndices = common.FileSize/common.PieceSize;
+		int numChunks = common.FileSize/common.PieceSize;
 		boolean evenDivision = common.FileSize%common.PieceSize == 0;
 		
 		if(!evenDivision)
 		{
-			numIndices++;
+			numChunks++;
 		}
 		
-		byte[] temp = new byte[numIndices];
+		int numByteIndices = numChunks/8;
+		int bitsInRemainder = (numChunks%8);
+		boolean evenDivision2 = bitsInRemainder==0;
 		
-		for(int a = 0; a < temp.length; a++)
+		if(!evenDivision2)
 		{
-			temp[a] = 127;
+			numByteIndices++; 
+		}
+		
+		byte[] temp = new byte[numByteIndices];
+		
+		for(int a = 0; a < temp.length-1; a++)
+		{
+			temp[a] = (byte) 255;
 		}
 		
 		if(!evenDivision)
-		{
-			byte remainder = (byte) (common.FileSize%common.PieceSize);
-			
-			temp[temp.length-1] = remainder;
+		{			
+			temp[temp.length-1] = (byte) (Math.pow(2, bitsInRemainder)-1);
 		}
+		
+		return temp;
 	}
 	public void run()
 	{
@@ -83,5 +92,4 @@ public class Host extends Thread
 	{
 		running = false;
 	}
-	
 }

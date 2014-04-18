@@ -22,3 +22,13 @@
 .metadata/.plugins/org.eclipse.e4.workbench/workbench.xmi
 
 .metadata/.plugins/org.eclipse.e4.workbench/workbench.xmi
+
+*.class
+
+*.class
+
+*.class
+
+CNT4007c/NetworkingSP14/bin/MessageTypes/HandshakeMessage.class
+
+CNT4007c/NetworkingSP14/bin/MessageTypes/HandshakeMessage.class
